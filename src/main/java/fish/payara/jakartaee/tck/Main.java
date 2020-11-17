@@ -46,7 +46,9 @@ public class Main {
 
             glassfish.stop();
 
-            System.out.println("##### Command Output #####");
+            System.out.println("########################################");
+            System.out.println("############ Command Output ############");
+            System.out.println("########################################");
             System.out.println(commandResult.getOutput());
             if (commandResult.getExitStatus().equals(CommandResult.ExitStatus.FAILURE)) {
                 System.out.println(commandResult.getFailureCause());
