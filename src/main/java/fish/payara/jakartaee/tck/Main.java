@@ -44,14 +44,17 @@ public class Main {
             // Run command
             CommandResult commandResult = glassfish.getCommandRunner().run("send-asadmin-command", sendAsadminCommandParameters);
 
+            glassfish.stop();
+
             System.out.println("##### Command Output #####");
             System.out.println(commandResult.getOutput());
             if (commandResult.getExitStatus().equals(CommandResult.ExitStatus.FAILURE)) {
                 System.out.println(commandResult.getFailureCause());
+                System.exit(1);
             }
-            glassfish.stop();
         } catch (GlassFishException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            System.exit(1);
         }
     }
 }
